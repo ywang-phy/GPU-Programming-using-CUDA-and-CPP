@@ -1,0 +1,18 @@
+---
+title: "GPU Programming using CUDA and C++"
+author: "Yuan Wang"
+date: "2025"
+documentclass: book
+geometry: "margin=1in"
+fontsize: 11pt
+linestretch: 1.2
+toc: true
+toc-depth: 2
+numbersections: true
+links-as-notes: false
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
+citecolor: blue
+lang: en-US
+---
