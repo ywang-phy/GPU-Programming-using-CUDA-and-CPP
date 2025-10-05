@@ -1,5 +1,3 @@
-**build.sh:**
-```bash
 #!/bin/bash
 
 # Create output directory
