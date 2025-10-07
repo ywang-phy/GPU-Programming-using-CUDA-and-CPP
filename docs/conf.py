@@ -1,6 +1,11 @@
 # Use the sphinx-book-theme (similar to d2l.ai)
 html_theme = 'sphinx_book_theme'
 
+# -- Project information -----------------------------------------------------
+
+project = 'GPU Programming using CUDA and C++'
+copyright = '2025, Yuan Wang'
+author = 'Yuan Wang'
 
 extensions = [
     'myst_parser',

@@ -32,4 +32,4 @@ to any chapter using the navigation on the left.
 About the Author
 ----------------
 
-[Your information here]
+I am current a Research Associate at Quantum Dynamics, Optics & Simulation Group, Department of Physics and Astronomy, University of Sheffield. I am passionate about quantum light-matter interaction, parallel computing, and AI for science, with expertise in developing computational tools on GPU for quantum systems, applying machine learning to accelerate scientific discovery, and leveraging physical principles to enhance machine learning architectures (Science for AI).
