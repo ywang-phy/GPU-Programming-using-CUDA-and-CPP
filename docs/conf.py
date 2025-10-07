@@ -1,6 +1,25 @@
 # Use the sphinx-book-theme (similar to d2l.ai)
 html_theme = 'sphinx_book_theme'
 
+## Enable figure numbering
+
+# Enable figure numbering
+numfig = True
+numfig_format = {
+    'figure': 'Figure %s',
+    'table': 'Table %s',
+    'code-block': 'Listing %s'
+}
+
+# MyST extensions for better markdown support
+myst_enable_extensions = [
+    "dollarmath",
+    "amsmath",
+    "deflist",
+    "colon_fence",
+    "attrs_inline",  # For inline attributes
+]
+
 # -- Project information -----------------------------------------------------
 
 project = 'GPU Programming using CUDA and C++'
@@ -15,12 +34,12 @@ extensions = [
 ]
 
 # Optional: Configure MyST to support more markdown features
-myst_enable_extensions = [
-    "dollarmath",      # For $math$ syntax
-    "amsmath",         # For advanced math
-    "deflist",         # Definition lists
-    "colon_fence",     # ::: fences
-]
+# myst_enable_extensions = [
+#     "dollarmath",      # For $math$ syntax
+#     "amsmath",         # For advanced math
+#     "deflist",         # Definition lists
+#     "colon_fence",     # ::: fences
+# ]
 
 # Configure the theme
 html_theme_options = {
