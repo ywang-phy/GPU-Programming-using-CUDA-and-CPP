@@ -1,5 +1,7 @@
 name: Deploy Sphinx Documentation to GitHub Pages
 
+run-name: Build and Deploy
+
 on:
   push:
     branches: [main]  # Change to 'master' if that's your branch name
