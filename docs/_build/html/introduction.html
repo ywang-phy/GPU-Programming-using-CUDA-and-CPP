@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Project name not set  documentation</title>
+    <title>Introduction &#8212; GPU Programming with CUDA</title>
   
   
   
@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -46,6 +46,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'introduction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 1: CUDA Basics" href="chapter1.html" />
+    <link rel="prev" title="GPU Programming using CUDA and C++" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -108,8 +110,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -135,7 +135,7 @@
   
   
   
-    <p class="title logo__title">Project name not set  documentation</p>
+    <p class="title logo__title">GPU Programming with CUDA</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -151,7 +151,12 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Book Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Chapter 1: CUDA Basics</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -322,9 +327,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -335,19 +338,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -357,10 +352,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>Unlike the conventional CPU-based architecture, where CPU cores are much more limited, GPU has many more cores, even in consumer products. A comparison of CPU and GPU architecture is illustrated in Fig.~\ref{cpu_gpu_comparison}. The terminologies “core” for both CPU and GPU mentioned earlier, though, have different implications. For instance, dual physical cores in an INTEL CPU can have up to four virtual threads, known as hyperthreading, and each physical core consists of an arithmetic logic unit (ALU), a logic control unit, and caches, while the NVIDIA CUDA core usually refers to a large number of execution units following the concept of “Single Instruction, Multiple Data” (SIMD)~\cite{NVIDIA_CPP_Programming_Guide}.\footnote{The NVIDIA CUDA core usually means an execution unit that can perform a single-precision floating-point (FP32) operation per clock cycle, and there is no direct comparison of threads and cores between CPU and GPU.} Thanks to the SIMD feature, CUDA is used for the first time for deep convolutional neural networks, known as AlexNet, in image identification in 2012~\cite{krizhevsky2017imagenet}.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>Unlike the conventional CPU-based architecture, where CPU cores are much more limited, GPU has many more cores, even in consumer products. A comparison of CPU and GPU architecture is illustrated in Fig.~\ref{cpu_gpu_comparison}. The terminologies “core” for both CPU and GPU mentioned earlier, though, have different implications. For instance, dual physical cores in an INTEL CPU can have up to four virtual threads, known as hyperthreading, and each physical core consists of an arithmetic logic unit (ALU), a logic control unit, and caches, while the NVIDIA CUDA core usually refers to a large number of execution units following the concept of “Single Instruction, Multiple Data” (SIMD)~\cite{NVIDIA_CPP_Programming_Guide}.\footnote{The NVIDIA CUDA core usually means an execution unit that can perform a single-precision floating-point (FP32) operation per clock cycle, and there is no direct comparison of threads and cores between CPU and GPU.} Thanks to the SIMD feature, CUDA is used for the first time for deep convolutional neural networks, known as AlexNet, in image identification in 2012~\cite{krizhevsky2017imagenet}.</p>
 <p>Generally speaking, each thread of a CPU comes with an execution of a task at a fast speed, but is limited by the number of threads running concurrently; however, there are thousands of threads running in parallel in GPU but with a slower execution speed per thread. There are always advantages and disadvantages when choosing the preferable architecture for executing certain tasks.</p>
 <p>Figure~\ref{cpu_gpu_comparison} depicts the main difference between a CPU and a GPU in that unlike a CPU where each core has its control unit and can access the CPU’s fast memory (cache), in a GPU, cores are organized into groups, with each group controlled by a single control unit and sharing access to a cache. Both the CPU and the GPU are connected to dynamic random-access memory (DRAM); the CPU directly accesses the system’s DRAM, while the Nvidia GPU, designed for CUDA, operates using its dedicated memory, often referred to as GPU global memory\footnote{It is worthy noting that the memory configurations differ for different hardware archetectures. For example, the unified memory that the CPU and GPU can access is part of the Apple M1 series chips.}, a specific variant of DRAM, to handle its computations.</p>
 <p>Before attempting to go into detail, keep in mind that parallel computing is not confined to a particular type of hardware, such as a GPU. Instead, it is a concept that applies to any hardware capable of concurrent operations, including multicore CPUs, which can also perform parallel processing up to a certain extent. In other words, parallel programming is fundamentally about algorithm design rather than the specifics of the underlying hardware. For instance, in a parallel computing network, various units can be interconnected, and each unit can comprise different elements, such as CPUs, GPUs, Field Programmable Gate Arrays (FPGAs), or other computational units.</p>
+</section>
 
 
                 </article>
@@ -373,27 +371,30 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GPU Programming using CUDA and C++</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 1: CUDA Basics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>

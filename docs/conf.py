@@ -23,4 +23,10 @@ html_theme_options = {
     "use_repository_button": True,
     "use_edit_page_button": True,
     "use_download_button": True,
+    "use_fullscreen_button": True,
+    "home_page_in_toc": False,  # Don't show index.rst in sidebar
+    "show_toc_level": 2,         # Show 2 levels in sidebar
+    "navigation_with_keys": True,
 }
+
+html_title = "GPU Programming with CUDA"
